@@ -22,23 +22,6 @@ describe('students database', function() {
 		});
 	});
 
-	before(function(done) {
-		var login = new Login();
-		login.email = 'test@test.com';
-		login.basic.email = 'test@test.com';
-		login.generateHash('foobar123', function(err, res) {
-			if (err) throw err;
-			login.save(function(err, data) {
-				if(err) throw err;
-				login.generateToken(function(err, token) {
-					if(err) throw err;
-					this.token = token;
-					done();
-				}.bind(this));
-			}.bind(this));
-		}.bind(this));
-	});
-
 	it('should be able to get list of students.', function(done) {
 		chai.request(url)
 		  .get('/students')
