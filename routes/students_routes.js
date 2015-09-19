@@ -3,6 +3,7 @@ var Student = require(__dirname + '/../models/students');
 var express = require('express');
 var jsonParser = require('body-parser').json();
 var handleError = require(__dirname + '/../lib/handle_error');
+var eatauth = require(__dirname + '/../lib/eat_auth');
 
 var studentsRoute = module.exports = exports = express.Router();
 
@@ -21,8 +22,10 @@ studentsRoute.get('/students/:name', function(req,res) {
 
 });
 
-studentsRoute.post('/students', jsonParser, function(req,res) {
+
+studentsRoute.post('/students', jsonParser, eatauth, function(req,res) {
 	var newStudent = new Student(req.body);
+	newStudent.email = req.login.email;
 	newStudent.save(function(err, data) {
 		if (err) handleError(err,res);
 		Student.schema.path('name').validate(function(value) {
@@ -30,4 +33,11 @@ studentsRoute.post('/students', jsonParser, function(req,res) {
 		res.json(data);
 	});
 });
-	
+
+
+
+
+
+
+
+
