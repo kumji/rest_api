@@ -1,0 +1,37 @@
+{
+  "name": "restapi_kj",
+  "version": "0.1.0",
+  "description": "single resource REST API for assign.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumji/rest_api.git"
+  },
+  "keywords": [
+    "rest"
+  ],
+  "author": "kumji park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kumji/rest_api/issues"
+  },
+  "homepage": "https://github.com/kumji/rest_api#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.13.3",
+    "eat": "^0.1.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.7"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-http": "^1.0.0",
+    "mocha": "^2.3.2"
+  }
+}
